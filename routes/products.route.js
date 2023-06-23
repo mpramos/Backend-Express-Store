@@ -16,23 +16,21 @@ router.get('/:id',(req,res)=>{
 })
 router.post('/',(req,res)=>{
     const body=req.body
-    const newProduct=service.create(body)
-    res.status(201).json({
-        message:'POST',
-        newProduct
-    })
+    const newProducto=service.create(body)
+    res.status(201).json(
+       newProducto
+    )
 })
 router.patch('/:id',(req,res)=>{
     const {id}=req.params
-    const {body}=req.body
-    const product=service.update(id, body)
-res.json({
-    product
-})
+    const body=req.body
+    const producto=service.update(id,body)
+    res.json(producto)
+
 })
 router.delete('/:id',(req,res)=>{
     const {id}=req.params
-    const rta=service.delete(id)
-    res.json(rta)
+    const respuesta=service.delete(id)
+    res.json(respuesta)
 })
 module.exports=router

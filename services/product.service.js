@@ -16,12 +16,12 @@ class ProductService{
         }
     }
 create(data){
-    const newProduct={
-        id:faker.datatype.uuid(),
-        ...data
-    }
-    this.products.push(newProduct)
-    return newProduct
+  const newProducto={
+    id:faker.datatype.uuid(),
+    ...data
+  }
+  this.products.push(newProducto)
+  return newProducto
 }
 find(){
     return this.products
@@ -31,19 +31,23 @@ return this.products.find((item)=>id===item.id)
 }
 update(id,changes){
     const index= this.products.findIndex(item=>item.id===id)
-	if(index===-1){
-		 throw new Error('No existe el producto')
-}	
-	this.products[index]=changes
-    return this.products[index]
-}
-delete(id){
-    const index=this.products.findIndex(item=>item.id===id)
-    if(index===-1){
-        throw new Error('No pudimos encontrar tu producto')
+    if (index===-1) {
+         throw new Error('Este producto no existe')
     }
-    this.products.splice(index,1)
-    return {id}
+    const producto= this.products[index]
+    this.products[index]={...producto,...changes}
+
+   return this.products[index]
+    }
+  
+
+delete(id){
+   const index= this.products.findIndex(item=>item.id===id)
+   if (index===-1) {
+        throw new Error('Este producto no existe')
+   }
+   this.products.splice(index,1)
+   return {id}
 }
 
 }
