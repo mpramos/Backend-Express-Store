@@ -23,6 +23,9 @@ create(data){
     this.products.push(newProduct)
     return newProduct
 }
+
+ 
+
 find(){
     return this.products
 }
