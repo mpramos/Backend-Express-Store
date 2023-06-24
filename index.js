@@ -3,7 +3,7 @@ const express= require('express')
 const app=express()
 app.use(express.json())
 const port= 3000
-const ApiRoutes = require('./routes/indexs')
+const ApiRoutes = require('./routes/index')
 app.get('/',(req,res)=>{
     res.send("Hello World")
 })
